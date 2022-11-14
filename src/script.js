@@ -1,5 +1,6 @@
-import Test from './test.js'
-console.log(Test);
+import Experience from "./Experience/Experience";
+
+const experience = new Experience()
 
 // import './style.css'
 // import * as THREE from 'three'
