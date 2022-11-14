@@ -7,7 +7,8 @@
 html,
 body
 {
-    overflow: hidden;
+    height: 100vh;
+    font-family: 'Poppins';
 }
 
 .webgl
@@ -17,3 +18,6 @@ body
     left: 0;
     outline: none;
 }
+
+
+/*# sourceMappingURL=main.css.map*/
