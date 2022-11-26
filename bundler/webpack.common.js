@@ -7,7 +7,6 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
     output:
     {
-        hashFunction: 'xxhash64',
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, '../dist')
     },
@@ -32,10 +31,7 @@ module.exports = {
             // HTML
             {
                 test: /\.(html)$/,
-                use:
-                [
-                    'html-loader'
-                ]
+                use: ['html-loader']
             },
 
             // JS
@@ -61,25 +57,35 @@ module.exports = {
             // Images
             {
                 test: /\.(jpg|png|gif|svg)$/,
-                type: 'asset/resource',
-                generator:
-                {
-                    filename: 'assets/images/[hash][ext]'
-                }
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            outputPath: 'assets/images/'
+                        }
+                    }
+                ]
             },
 
             // Fonts
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                type: 'asset/resource',
-                generator:
-                {
-                    filename: 'assets/fonts/[hash][ext]'
-                }
-            },
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            outputPath: 'assets/fonts/'
+                        }
+                    }
+                ]
+            }, 
 
-            // Shaders
-            {
+             // Shaders
+             {
                 test: /\.(glsl|vs|fs|vert|frag)$/,
                 type: 'asset/source',
                 generator:
